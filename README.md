@@ -3,9 +3,9 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![Model](https://img.shields.io/badge/model-logit%20trend-purple)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Status](https://img.shields.io/badge/bounty%20result-10%20Dec%202026-orange)
+![Status](https://img.shields.io/badge/status-completed-brightgreen)
 
-Predicts the final rarity (% of players unlocking) of GTA VI trophies at 30 / 90 / 180 days after launch — built for a make.fun forecasting bounty ($250 pool), where it **beat both house baselines** on two hidden synthetic final worlds.
+Predicts the final rarity (% of players unlocking) of GTA VI trophies at 30 / 90 / 180 days after launch — on two held-out synthetic worlds it **beat both reference baselines**.
 
 ## 🎯 Results
 
