@@ -23,7 +23,7 @@ What the model does, per trophy, from the case's history:
    above it.
 4. Spread the five quantiles on the logit scale with a random-walk
    width of 0.45 * sqrt(horizon in days) -- a touch narrower than the
-   house baseline's 0.5, which the tuning below found slightly
+   reference baseline's 0.5, which the tuning below found slightly
    over-wide -- floored at 0.35 logit units so a short horizon still
    gets a band a refresh can land inside.
 5. Enforce the structure the game itself imposes: chapter trophies
@@ -35,8 +35,8 @@ Tuning: the recipe was chosen on synthetic final cases built two
 different ways -- saturating earned-shares with no dilution, and
 earned-counts and players saturating on separate clocks so the rate
 is their ratio and can fall while players flood in. The shipped
-recipe beats both house baselines in both worlds (mean pinball loss
-about 0.21-0.28 against about 0.27-0.33 for the house trend baseline and 0.34-0.38
+recipe beats both reference baselines in both worlds (mean pinball loss
+about 0.21-0.28 against about 0.27-0.33 for the reference trend baseline and 0.34-0.38
 for persistence); the count-model and blend variants that won one
 world lost the other badly, so they were dropped.
 
@@ -45,8 +45,8 @@ scale, clamped to [0.01, 99.99] and rounded half-up to 4 decimals.
 Everything is deterministic: no randomness, no wall-clock use, fixed
 iteration order, so two runs on one case write identical bytes.
 
-Standard library only. Reads $MAKEFUN_INPUT_DIR (else /input), writes
-$MAKEFUN_OUTPUT_DIR (else /output), one <id>.out per <id>.in.
+Standard library only. Reads $INPUT_DIR (else /input), writes
+$OUTPUT_DIR (else /output), one <id>.out per <id>.in.
 """
 
 import json
@@ -59,8 +59,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-INPUT_DIR = Path(os.environ.get("MAKEFUN_INPUT_DIR", "/input"))
-OUTPUT_DIR = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+INPUT_DIR = Path(os.environ.get("INPUT_DIR", "/input"))
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/output"))
 
 LEVELS = [0.05, 0.25, 0.5, 0.75, 0.95]
 Z = [-1.645, -0.674, 0.0, 0.674, 1.645]
