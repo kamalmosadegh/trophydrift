@@ -9,12 +9,12 @@ Predicts the final rarity (% of players unlocking) of GTA VI trophies at 30 / 90
 
 ## 🎯 Results
 
-| Test world | TrophyDrift | House baselines |
+| Test world | TrophyDrift | Reference baselines |
 |---|---|---|
 | Synthetic final A | ✅ won | lost |
 | Synthetic final B | ✅ won | lost |
 
-Kit checks: **16 / 16 passed** · 100% authored lines.
+Automated checks: **16 / 16 passed** · 100% self-authored code.
 
 ## 🧠 Model
 - Per-trophy **logit-vs-log-time trend** fitted on observed unlock curves.
